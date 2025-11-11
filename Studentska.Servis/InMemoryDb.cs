@@ -11,9 +11,9 @@ namespace Studentska.Servis
         {
             return new List<Korisnik>()
         {
-            new Korisnik("Ime1", "Prezime1", "korisnik1", "korisnik1",  true) { Id=1 },
-            new Korisnik("Ime2", "Prezime2", "korisnik2", "korisnik2",  true) { Id=2 },
-            new Korisnik("Ime3", "Prezime3", "korisnik3", "korisnik3",  false){ Id=3 },
+            new Korisnik("Ime1", "Prezime1",DateTime.Now,null, "korisnik1", "korisnik1",  true) { Id=1 },
+            new Korisnik("Ime2", "Prezime2",DateTime.Now,null, "korisnik2", "korisnik2",  true) { Id=2 },
+            new Korisnik("Ime3", "Prezime3",DateTime.Now,null, "korisnik3", "korisnik3",  false){ Id=3 },
         };
         }
         private static List<Student> GenerisiStudente()

@@ -19,9 +19,17 @@ namespace Studentska.WinApp
 
         private void xOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmXO novaXO = new frmXO();
-            novaXO.Show();
+            //frmXO novaXO = new frmXO();
+            //novaXO.Show();
+            PrikaziFormu(new frmXO());
         }
+
+        private void PrikaziFormu(Form forma)
+        {
+            forma.MdiParent = this;
+            forma.Show();
+        }
+
 
         private void odjavaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -32,6 +40,11 @@ namespace Studentska.WinApp
         private void krajRadaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void pretragaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrikaziFormu(new frmKorisniciPretraga());
         }
     }
 }

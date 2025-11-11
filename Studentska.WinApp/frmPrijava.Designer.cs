@@ -46,6 +46,7 @@
             txtKorisnickoIme.Name = "txtKorisnickoIme";
             txtKorisnickoIme.Size = new Size(244, 34);
             txtKorisnickoIme.TabIndex = 0;
+            txtKorisnickoIme.Text = "korisnik1";
             // 
             // label1
             // 
@@ -79,6 +80,7 @@
             txtLozinka.PasswordChar = '*';
             txtLozinka.Size = new Size(244, 34);
             txtLozinka.TabIndex = 2;
+            txtLozinka.Text = "korisnik1";
             // 
             // btnPrijava
             // 
