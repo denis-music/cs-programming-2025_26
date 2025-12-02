@@ -8,11 +8,12 @@ namespace Studentska.Servis
             get { return InMemoryDb.tblStudenti[index]; }
             set { InMemoryDb.tblStudenti[index] = value; }
         }
+        public int GetBrojStudenata() { return InMemoryDb.tblStudenti.Count; }
         public List<Student> GetAll()
         {
             return InMemoryDb.tblStudenti;
         }
-        public Student? GetByIndeks(int indeks)
+        public Student? GetByIndeks(string indeks)
         {
             return InMemoryDb.tblStudenti.Find(student => student.Indeks == indeks);
         }

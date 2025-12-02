@@ -1,15 +1,8 @@
 ﻿using Studentska.Servis;
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Studentska.WinApp
 {
@@ -94,11 +87,19 @@ namespace Studentska.WinApp
 
     public class Validator 
     {
-        public static bool ValidanUnos(TextBox textBox, ErrorProvider err, string poruka)
+        public static bool ValidanUnos(Control control, ErrorProvider err, string poruka)
         {
-            if (string.IsNullOrWhiteSpace(textBox.Text))
+            bool validan = true;
+            if (control is ComboBox cmb && cmb.SelectedIndex < 0)
+                validan = false;
+            else if (control is PictureBox pb && pb.Image == null )
+                validan = false;
+            else if (control is TextBox txt && string.IsNullOrWhiteSpace(txt.Text))
+                validan = false;
+
+            if (!validan)
             {
-                err.SetError(textBox, poruka);
+                err.SetError(control, poruka);
                 return false;
             }            
             err.Clear();

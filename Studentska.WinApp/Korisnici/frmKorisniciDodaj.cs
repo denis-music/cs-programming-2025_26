@@ -1,5 +1,6 @@
 ﻿using Studentska.Data;
 using Studentska.Servis;
+using Studentska.WinApp.Studenti;
 
 using System;
 using System.Collections.Generic;
@@ -33,18 +34,10 @@ namespace Studentska.WinApp
 
         private void frmKorisniciDodaj_Load(object sender, EventArgs e)
         {
-            txtLozinka.Text = GenerisiLozinku();
+            txtLozinka.Text = Generator.GenerisiLozinku();
         }
 
-        private string GenerisiLozinku(int brojZnakova = 10)
-        {
-            string dozvoljniZnakovi = "abcdefghijkljmnoprstuvzwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
-            Random rand = new Random();
-            StringBuilder lozinka = new StringBuilder();//xQ1!2@abC3
-            for (int i = 0; i < brojZnakova; i++)
-                lozinka.Append(dozvoljniZnakovi[rand.Next(dozvoljniZnakovi.Length)]);
-            return lozinka.ToString();
-        }
+       
 
         private void txtIme_TextChanged(object sender, EventArgs e)
         {

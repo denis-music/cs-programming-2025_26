@@ -40,7 +40,7 @@ namespace Studentska.ConsoleApp.Predavanja
             for (int i = 0; i < g1.Length; i++)
             {
                 g1[i] = new Student();
-                g1[i].Indeks  = 150000 + i;
+               // g1[i].Indeks  = 150000 + i;
                 g1[i].Ime = "Ime_" + i;
                 g1[i].Prezime = "Prezime_" + i;
                 g1[i].Aktivan = true;
@@ -79,7 +79,7 @@ namespace Studentska.ConsoleApp.Predavanja
             Student obj = new Student()
             {
                 Prezime = "Music",
-                Indeks = 150051,
+                //Indeks = 150051,
                 Aktivan = true,
                 Semestar = 3,
             };
@@ -140,7 +140,7 @@ namespace Studentska.ConsoleApp.Predavanja
 
             Student denis = new Student
             {
-                Indeks = 150051,
+              //  Indeks = 150051,
                 Ime = "Denis",
                 Prezime = "Music",
                 Semestar = 3,

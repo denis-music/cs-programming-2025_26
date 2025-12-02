@@ -1,23 +1,27 @@
-﻿namespace Studentska.Data
-{
-    public class Grad { public string Naziv { get; set; } }
-    public class Prebivaliste { public Grad Grad { get; set; } }
+﻿using System.Drawing;
 
+namespace Studentska.Data
+{
 
     public class Student
     {
-        public Prebivaliste Prebivaliste { get; set; }
-
         public int Id { get; set; }
-        public int Indeks { get; set; }
+        public string Indeks { get; set; }
+        public string Lozinka { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public int Semestar { get; set; }
-        public bool Aktivan { get; set; }        
+        public DateTime DatumRodjenja { get; set; }
+        public int SpolId{ get; set; }
+        public Spol Spol { get; set; }
+        public int GradId { get; set; }
+        public Grad Grad { get; set; }
+        public bool Aktivan { get; set; }
+        public Image Slika { get; set; }
 
         public Student(int indeks = 0, string ime = "",string prezime = "", bool aktivan = true)
         {
-            Indeks = indeks;
+            Indeks = indeks.ToString();
             Ime = ime;
             Prezime = prezime;
             Aktivan = aktivan;
@@ -27,14 +31,10 @@
         {
             return $"{Id} {Indeks} {Ime} {Prezime}";
         }
-
         public override string ToString()
         {
             return $"{Indeks} {Ime} {Prezime} {Semestar} {Aktivan}";
         }
-
-
-
     }
 
     public struct sStudent

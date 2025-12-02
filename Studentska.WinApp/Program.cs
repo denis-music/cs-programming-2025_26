@@ -1,3 +1,5 @@
+using Studentska.WinApp.Studenti;
+
 namespace Studentska.WinApp
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace Studentska.WinApp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmDogadjaji());
+            Application.Run(new frmStudentiPretraga());
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Studentska.Servis
             return InMemoryDb.tblKorisnici.Find(korisnik => korisnik.KorisnickoIme == korisnickoIme);
         }
 
-        public Korisnik Add(Korisnik noviKorisnik)//create
+        public Korisnik Add(Korisnik noviKorisnik)
         {
             noviKorisnik.Id = InMemoryDb.tblKorisnici.Count + 1;//4
             InMemoryDb.tblKorisnici.Add(noviKorisnik);

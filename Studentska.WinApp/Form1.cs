@@ -25,7 +25,7 @@ namespace Studentska.WinApp
 
             Student noviStudent = new Student()
             {
-                Indeks = 150100,
+                Indeks = "150100",
                 Ime = "Novi",
                 Prezime = "Student",
                 Aktivan = true,
