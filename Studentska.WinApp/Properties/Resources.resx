@@ -129,4 +129,7 @@
   <data name="user_not_active" xml:space="preserve">
     <value>Korisnički nalog nije aktivan</value>
   </data>
+  <data name="user_successfully_added" xml:space="preserve">
+    <value>Korisnik uspješno dodat</value>
+  </data>
 </root>

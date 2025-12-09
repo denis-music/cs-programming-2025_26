@@ -35,6 +35,7 @@
             DatumRodjenja = new DataGridViewTextBoxColumn();
             Aktivan = new DataGridViewCheckBoxColumn();
             btnStudent = new Button();
+            txtFilter = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).BeginInit();
             SuspendLayout();
             // 
@@ -44,12 +45,13 @@
             dgvStudenti.AllowUserToDeleteRows = false;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Indeks, Ime, Prezime, DatumRodjenja, Aktivan });
-            dgvStudenti.Location = new Point(24, 105);
+            dgvStudenti.Location = new Point(12, 44);
             dgvStudenti.Name = "dgvStudenti";
             dgvStudenti.ReadOnly = true;
             dgvStudenti.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStudenti.Size = new Size(750, 229);
             dgvStudenti.TabIndex = 0;
+            dgvStudenti.CellContentClick += dgvStudenti_CellContentClick;
             // 
             // Indeks
             // 
@@ -91,27 +93,37 @@
             // 
             // btnStudent
             // 
-            btnStudent.Location = new Point(661, 76);
+            btnStudent.Location = new Point(659, 12);
             btnStudent.Name = "btnStudent";
-            btnStudent.Size = new Size(113, 23);
+            btnStudent.Size = new Size(103, 23);
             btnStudent.TabIndex = 1;
             btnStudent.Text = "Dodaj studenta";
             btnStudent.UseVisualStyleBackColor = true;
             btnStudent.Click += btnStudent_Click;
             // 
+            // txtFilter
+            // 
+            txtFilter.Location = new Point(12, 12);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new Size(641, 23);
+            txtFilter.TabIndex = 2;
+            txtFilter.TextChanged += txtFilter_TextChanged;
+            // 
             // frmStudentiPretraga
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 350);
+            ClientSize = new Size(771, 283);
+            Controls.Add(txtFilter);
             Controls.Add(btnStudent);
             Controls.Add(dgvStudenti);
             Name = "frmStudentiPretraga";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmStudentiPretraga";
+            Text = "Pretraga studenata";
             Load += frmStudentiPretraga_Load;
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -123,5 +135,6 @@
         private DataGridViewTextBoxColumn DatumRodjenja;
         private DataGridViewCheckBoxColumn Aktivan;
         private Button btnStudent;
+        private TextBox txtFilter;
     }
 }

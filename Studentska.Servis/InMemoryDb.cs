@@ -54,12 +54,12 @@ namespace Studentska.Servis
         {
             return new List<Student>()
         {
-            new Student(){ Id = 1, Ime="Marko", Prezime="Markovic", Indeks="IB150001", Semestar=3, SpolId=1, GradId=1, Aktivan=true },
-            new Student(){ Id = 2, Ime="Jelena", Prezime="Jovanovic", Indeks="IB150002", Semestar=5, SpolId=2, GradId=2, Aktivan=true },
-            new Student(){ Id = 3, Ime="Ivan", Prezime="Ivic", Indeks="IB150003", Semestar=1, SpolId=1, GradId=3, Aktivan=false  },
-            new Student(){ Id = 4, Ime="Ana", Prezime="Anic", Indeks="IB150004", Semestar=7, SpolId=2, GradId=4, Aktivan=true },
-            new Student(){ Id = 5, Ime="Petar", Prezime="Petrovic", Indeks="IB150005", Semestar=2, SpolId=1, GradId=5, Aktivan=true },
-            new Student(){ Id = 6, Ime="Maja", Prezime="Majic", Indeks="IB150006", Semestar=4, SpolId=2, GradId=6, Aktivan=false }
+            new Student(){ Id = 1,DatumRodjenja = DateTime.Now, Ime="Marko", Prezime="Markovic", Indeks="IB150001", Semestar=3, SpolId=1, GradId=1, Aktivan=true },
+            new Student(){ Id = 2,DatumRodjenja = DateTime.Now, Ime="Jelena", Prezime="Jovanovic", Indeks="IB150002", Semestar=5, SpolId=2, GradId=2, Aktivan=true },
+            new Student(){ Id = 3,DatumRodjenja = DateTime.Now, Ime="Ivan", Prezime="Ivic", Indeks="IB150003", Semestar=1, SpolId=1, GradId=3, Aktivan=false  },
+            new Student(){ Id = 4,DatumRodjenja = DateTime.Now, Ime="Ana", Prezime="Anic", Indeks="IB150004", Semestar=7, SpolId=2, GradId=4, Aktivan=true },
+            new Student(){ Id = 5,DatumRodjenja = DateTime.Now, Ime="Petar", Prezime="Petrovic", Indeks="IB150005", Semestar=2, SpolId=1, GradId=5, Aktivan=true },
+            new Student(){ Id = 6,DatumRodjenja = DateTime.Now, Ime="Maja", Prezime="Majic", Indeks="IB150006", Semestar=4, SpolId=2, GradId=6, Aktivan=false }
 
         };
         }

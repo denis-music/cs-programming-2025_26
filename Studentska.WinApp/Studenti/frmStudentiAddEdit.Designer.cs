@@ -264,6 +264,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "frmStudentiAddEdit";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Podaci o studentu";
             Load += frmStudentiAddEdit_Load;
             ((System.ComponentModel.ISupportInitialize)pbSlika).EndInit();

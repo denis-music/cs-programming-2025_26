@@ -1,4 +1,5 @@
-﻿using Studentska.Servis;
+﻿using Studentska.Data;
+using Studentska.Servis;
 
 using System;
 using System.Collections.Generic;
@@ -33,14 +34,38 @@ namespace Studentska.WinApp.Studenti
             }
         }
 
-        private void UcitajPodatke()
+        private void UcitajPodatke(List<Student> ? dataSource = null)
         {
-            dgvStudenti.DataSource = _studentServis.GetAll();
+            dgvStudenti.DataSource = null;
+            dgvStudenti.DataSource = dataSource ?? _studentServis.GetAll();
         }
 
         private void btnStudent_Click(object sender, EventArgs e)
         {
-            new frmStudentiAddEdit().ShowDialog();
+            if (new frmStudentiAddEdit().ShowDialog() == DialogResult.OK)
+                UcitajPodatke();
+        }
+
+        private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
+            if (odabraniStudent != null)
+            {
+                if (new frmStudentiAddEdit(odabraniStudent).ShowDialog() == DialogResult.OK)
+                    UcitajPodatke();
+            }
+        }
+
+        private void txtFilter_TextChanged(object sender, EventArgs e)
+        {
+            var filter = txtFilter.Text.ToLower();
+
+            var rezultatPretrage = (from student in _studentServis.GetAll()
+                                    where student.Ime.ToLower().Contains(filter) ||
+                                            student.Prezime.ToLower().Contains(filter) ||
+                                            student.Indeks.ToLower().Contains(filter)
+                                    select student).ToList();
+            UcitajPodatke(rezultatPretrage);
         }
     }
 }

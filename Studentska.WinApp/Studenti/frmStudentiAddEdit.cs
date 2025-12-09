@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.Marshalling;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,9 +23,12 @@ namespace Studentska.WinApp.Studenti
         GradServis _gradServis = new GradServis();
         StudentServis _studentServis = new StudentServis();
 
-        public frmStudentiAddEdit()
+        private Student _student;
+
+        public frmStudentiAddEdit(Student? odabraniStudent = null)
         {
             InitializeComponent();
+            _student = odabraniStudent ?? new Student();
         }
 
         private void frmStudentiAddEdit_Load(object sender, EventArgs e)
@@ -43,8 +47,28 @@ namespace Studentska.WinApp.Studenti
         {
             UcitajSpolove();
             UcitajDrzave();
-            UcitajBrojIndeksa();
-            UcitajLozinku();
+
+            if (_student.Id > 0)
+                UcitajPodatkeOStudentu();
+            else
+            {
+                UcitajBrojIndeksa();
+                UcitajLozinku();
+            }
+        }
+
+        private void UcitajPodatkeOStudentu()
+        {
+             txtIme.Text = _student.Ime;
+            txtPrezime.Text = _student.Prezime;
+            cmbSpol.SelectedValue = _student.SpolId;
+            txtIndeks.Text = _student.Indeks;
+            txtLozinka.Text = _student.Lozinka;
+            cmbDrzave.SelectedValue = _student.Grad.DrzavaId;
+            cmbGrad.SelectedValue = _student.GradId;
+            pbSlika.Image = _student.Slika;
+            cbAktivan.Checked = _student.Aktivan;
+            dtpDatumRodjenja.Value = _student.DatumRodjenja;            
         }
 
         private void UcitajLozinku()
@@ -59,22 +83,17 @@ namespace Studentska.WinApp.Studenti
 
         private void UcitajDrzave()
         {
-            cmbDrzave.DataSource = _drzavaServis.GetAll();
-            cmbDrzave.DisplayMember = "Naziv";
-            cmbDrzave.ValueMember = "Id";
+            cmbDrzave.UcitajPodatke(_drzavaServis.GetAll());
         }
 
         private void UcitajSpolove()
         {
-            cmbSpol.DataSource = _spolServis.GetAll();
-            cmbSpol.DisplayMember = "Naziv";
-            cmbSpol.ValueMember = "Id";
+            cmbSpol.UcitajPodatke(_spolServis.GetAll());
         }
+
         private void UcitajGradove(int drzavaId)
         {
-            cmbGrad.DataSource = _gradServis.GetByDrzavaId(drzavaId);
-            cmbGrad.DisplayMember = "Naziv";
-            cmbGrad.ValueMember = "Id";
+            cmbGrad.UcitajPodatke(_gradServis.GetByDrzavaId(drzavaId));
         }
 
         private void cmbDrzave_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,6 +114,35 @@ namespace Studentska.WinApp.Studenti
         {
             if (ValidanUnos())
             {
+                var spol = cmbSpol.SelectedItem as Spol;
+                var grad = cmbGrad.SelectedItem as Grad;
+                var drzava = cmbDrzave.SelectedItem as Drzava;
+
+                try
+                {
+                    _student.Ime = txtIme.Text;
+                    _student.Prezime = txtPrezime.Text;
+                    _student.SpolId = spol.Id;
+                    _student.Spol = spol;
+                    _student.Indeks = txtIndeks.Text;
+                    _student.Lozinka = txtLozinka.Text;
+                    _student.GradId = grad.Id;
+                    _student.Grad = grad;
+                    _student.Slika = pbSlika.Image;
+                    _student.Aktivan = cbAktivan.Checked;
+                    _student.DatumRodjenja = dtpDatumRodjenja.Value;
+
+                    if (_student.Id == 0)
+                        _studentServis.Add(_student);                   
+
+                    MessageBox.Show(Resursi.Get(Kljucevi.UserSuccessfullyAdded), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
         }
@@ -107,15 +155,29 @@ namespace Studentska.WinApp.Studenti
                 Validator.ValidanUnos(txtIndeks, err, Resursi.Get(Kljucevi.UserNameRequired)) &&
                 Validator.ValidanUnos(txtLozinka, err, Resursi.Get(Kljucevi.UserNameRequired)) &&
                 Validator.ValidanUnos(cmbGrad, err, Resursi.Get(Kljucevi.UserNameRequired)) &&
-                Validator.ValidanUnos(pbSlika, err, Resursi.Get(Kljucevi.UserNameRequired)) ;
+                Validator.ValidanUnos(pbSlika, err, Resursi.Get(Kljucevi.UserNameRequired));
+        }
+
+    }
+
+
+    public static class Ekstenzije
+    {
+        public static void UcitajPodatke<T>(this ComboBox cmb, List<T> dataSource,
+            string valueMember = "Id", string displayMember = "Naziv")
+        {
+            cmb.DataSource = dataSource;
+            cmb.DisplayMember = displayMember;
+            cmb.ValueMember = valueMember;
         }
     }
+
 
     public class Generator
     {
         public static string GenerisiIndeks()
-        {            
-            return $"IB{((DateTime.Now.Year - 2000)*10000)+ new StudentServis().GetBrojStudenata()+1}";
+        {
+            return $"IB{((DateTime.Now.Year - 2000) * 10000) + new StudentServis().GetBrojStudenata() + 1}";
         }
         public static string GenerisiLozinku(int brojZnakova = 10)
         {

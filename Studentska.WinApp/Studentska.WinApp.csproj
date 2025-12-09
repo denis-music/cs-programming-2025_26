@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Studentska.Data\Studentska.Data.csproj" />
     <ProjectReference Include="..\Studentska.Servis\Studentska.Servis.csproj" />
   </ItemGroup>

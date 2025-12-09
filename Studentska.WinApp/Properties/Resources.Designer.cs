@@ -88,6 +88,15 @@ namespace Studentska.WinApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Korisnik uspješno dodat.
+        /// </summary>
+        internal static string user_successfully_added {
+            get {
+                return ResourceManager.GetString("user_successfully_added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Obavezno unijeti korisničko ime.
         /// </summary>
         internal static string username_required {
