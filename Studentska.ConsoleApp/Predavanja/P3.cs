@@ -36,7 +36,7 @@ namespace Studentska.ConsoleApp.Predavanja
 
         private static void InicijalizujObjIn(in Student student)
         {
-            student.Indeks = 12345;
+            student.Indeks = "12345";
          //   student = new Student();
         }
 

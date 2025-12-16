@@ -1,6 +1,6 @@
 ﻿using Studentska.Data;
 using Studentska.Servis;
-using Studentska.WinApp.Studenti;
+using Studentska.WinApp.Helpers;
 
 using System;
 using System.Collections.Generic;

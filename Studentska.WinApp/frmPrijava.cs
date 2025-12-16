@@ -1,6 +1,5 @@
 ﻿using Studentska.Servis;
-
-using System.Resources;
+using Studentska.WinApp.Helpers;
 
 //using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -57,50 +56,6 @@ namespace Studentska.WinApp
         {
            return Validator.ValidanUnos(txtKorisnickoIme, err, Resursi.Get(Kljucevi.UserNameRequired)) &&
                   Validator.ValidanUnos(txtLozinka, err, Resursi.Get(Kljucevi.PasswordRequired));
-        }
-    }
-
-    public class Kljucevi
-    {
-         public const string InvalidLoginData = "invalid_login_data";
-        public const string UserNameRequired = "username_required";
-        public const string PasswordRequired = "password_required";
-        public const string UserSuccessfullyAdded = "user_successfully_added";
-    }
-
-
-    public class Resursi
-    {
-        static ResourceManager manager = new ResourceManager("Studentska.WinApp.Properties.Resources",
-            typeof(frmPrijava).Assembly);
-
-        public static string Get(string kljuc)
-        {
-            return manager.GetString(kljuc);
-        }
-    }
-
-
-
-    public class Validator 
-    {
-        public static bool ValidanUnos(Control control, ErrorProvider err, string poruka)
-        {
-            bool validan = true;
-            if (control is ComboBox cmb && cmb.SelectedIndex < 0)
-                validan = false;
-            else if (control is PictureBox pb && pb.Image == null )
-                validan = false;
-            else if (control is TextBox txt && string.IsNullOrWhiteSpace(txt.Text))
-                validan = false;
-
-            if (!validan)
-            {
-                err.SetError(control, poruka);
-                return false;
-            }            
-            err.Clear();
-            return true;
         }
     }
 

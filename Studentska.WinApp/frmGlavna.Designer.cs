@@ -94,13 +94,13 @@
             // noviKorisnikToolStripMenuItem
             // 
             noviKorisnikToolStripMenuItem.Name = "noviKorisnikToolStripMenuItem";
-            noviKorisnikToolStripMenuItem.Size = new Size(180, 22);
+            noviKorisnikToolStripMenuItem.Size = new Size(143, 22);
             noviKorisnikToolStripMenuItem.Text = "Novi korisnik";
             // 
             // pretragaToolStripMenuItem
             // 
             pretragaToolStripMenuItem.Name = "pretragaToolStripMenuItem";
-            pretragaToolStripMenuItem.Size = new Size(180, 22);
+            pretragaToolStripMenuItem.Size = new Size(143, 22);
             pretragaToolStripMenuItem.Text = "Pretraga";
             pretragaToolStripMenuItem.Click += pretragaToolStripMenuItem_Click;
             // 
@@ -115,6 +115,7 @@
             Name = "frmGlavna";
             Text = "Studentska App :: v.0.1";
             WindowState = FormWindowState.Maximized;
+            Load += frmGlavna_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

@@ -64,7 +64,7 @@ namespace Studentska.ConsoleApp.Predavanja
 
         private static void Nullvrijednosti()
         {
-            Student student = db.GetByIndeks(150001);//vraca null
+            Student student = db.GetByIndeks("150001");//vraca null
             //student = Student
             string prezime = student?.Prezime ?? "Nema podataka";
             Console.WriteLine(prezime);
@@ -88,7 +88,7 @@ namespace Studentska.ConsoleApp.Predavanja
             Console.WriteLine("\n----------------------------------\n");
             Student noviStudent = new Student()
             {
-                Indeks = 150100,
+                Indeks = "150100",
                 Ime = "Novi",
                 Prezime = "Student",
                 Aktivan = true,

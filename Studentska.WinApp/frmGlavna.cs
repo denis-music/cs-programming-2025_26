@@ -46,5 +46,10 @@ namespace Studentska.WinApp
         {
             PrikaziFormu(new frmKorisniciPretraga());
         }
+
+        private void frmGlavna_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

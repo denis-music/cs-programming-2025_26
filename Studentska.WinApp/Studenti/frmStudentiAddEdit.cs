@@ -2,6 +2,7 @@
 
 using Studentska.Data;
 using Studentska.Servis;
+using Studentska.WinApp.Helpers;
 
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.Marshalling;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -158,36 +158,6 @@ namespace Studentska.WinApp.Studenti
                 Validator.ValidanUnos(pbSlika, err, Resursi.Get(Kljucevi.UserNameRequired));
         }
 
-    }
-
-
-    public static class Ekstenzije
-    {
-        public static void UcitajPodatke<T>(this ComboBox cmb, List<T> dataSource,
-            string valueMember = "Id", string displayMember = "Naziv")
-        {
-            cmb.DataSource = dataSource;
-            cmb.DisplayMember = displayMember;
-            cmb.ValueMember = valueMember;
-        }
-    }
-
-
-    public class Generator
-    {
-        public static string GenerisiIndeks()
-        {
-            return $"IB{((DateTime.Now.Year - 2000) * 10000) + new StudentServis().GetBrojStudenata() + 1}";
-        }
-        public static string GenerisiLozinku(int brojZnakova = 10)
-        {
-            string dozvoljniZnakovi = "abcdefghijkljmnoprstuvzwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
-            Random rand = new Random();
-            StringBuilder lozinka = new StringBuilder();//xQ1!2@abC3
-            for (int i = 0; i < brojZnakova; i++)
-                lozinka.Append(dozvoljniZnakovi[rand.Next(dozvoljniZnakovi.Length)]);
-            return lozinka.ToString();
-        }
     }
 
 }
