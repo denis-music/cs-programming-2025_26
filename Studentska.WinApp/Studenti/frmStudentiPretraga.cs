@@ -27,11 +27,21 @@ namespace Studentska.WinApp.Studenti
             try
             {
                 UcitajPodatke();
+                TestirajBazu();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void TestirajBazu()
+        {
+            StudentskaDbContext db = new StudentskaDbContext();
+            var drzave = db.Drzave.ToList();
+            db.Drzave.Where(drzava => drzava.Naziv.Contains("b")).ToList();
+            db.Drzave.Find(1);
+
         }
 
         private void UcitajPodatke(List<Student> ? dataSource = null)
@@ -49,9 +59,16 @@ namespace Studentska.WinApp.Studenti
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
+            Text = $"{e.RowIndex} :: {e.ColumnIndex}";
             if (odabraniStudent != null)
             {
-                if (new frmStudentiAddEdit(odabraniStudent).ShowDialog() == DialogResult.OK)
+                Form forma =  null;
+                if (dgvStudenti.CurrentCell is DataGridViewButtonCell)
+                    forma = new frmStudentiPredmeti(odabraniStudent);
+                else
+                    forma = new frmStudentiAddEdit(odabraniStudent);
+                
+                if (forma.ShowDialog() == DialogResult.OK)
                     UcitajPodatke();
             }
         }

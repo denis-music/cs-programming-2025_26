@@ -59,16 +59,24 @@ namespace Studentska.WinApp.Studenti
 
         private void UcitajPodatkeOStudentu()
         {
-             txtIme.Text = _student.Ime;
-            txtPrezime.Text = _student.Prezime;
-            cmbSpol.SelectedValue = _student.SpolId;
-            txtIndeks.Text = _student.Indeks;
-            txtLozinka.Text = _student.Lozinka;
-            cmbDrzave.SelectedValue = _student.Grad.DrzavaId;
-            cmbGrad.SelectedValue = _student.GradId;
-            pbSlika.Image = _student.Slika;
-            cbAktivan.Checked = _student.Aktivan;
-            dtpDatumRodjenja.Value = _student.DatumRodjenja;            
+            try
+            {
+                txtIme.Text = _student.Ime;
+                txtPrezime.Text = _student.Prezime;
+                cmbSpol.SelectedValue = _student.SpolId;
+                txtIndeks.Text = _student.Indeks;
+                txtLozinka.Text = _student.Lozinka;
+                cmbDrzave.SelectedValue = _student.Grad?.DrzavaId;
+                cmbGrad.SelectedValue = _student.GradId;
+                pbSlika.Image = _student.Slika;
+                cbAktivan.Checked = _student.Aktivan;
+                dtpDatumRodjenja.Value = _student.DatumRodjenja;
+            }
+            catch (Exception ex)
+            {
+                Text = ex.Message;
+            }
+                   
         }
 
         private void UcitajLozinku()

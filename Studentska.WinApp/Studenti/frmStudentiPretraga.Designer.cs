@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             dgvStudenti = new DataGridView();
+            btnStudent = new Button();
+            txtFilter = new TextBox();
             Indeks = new DataGridViewTextBoxColumn();
             Ime = new DataGridViewTextBoxColumn();
             Prezime = new DataGridViewTextBoxColumn();
             DatumRodjenja = new DataGridViewTextBoxColumn();
             Aktivan = new DataGridViewCheckBoxColumn();
-            btnStudent = new Button();
-            txtFilter = new TextBox();
+            Predmeti = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).BeginInit();
             SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             dgvStudenti.AllowUserToAddRows = false;
             dgvStudenti.AllowUserToDeleteRows = false;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Indeks, Ime, Prezime, DatumRodjenja, Aktivan });
+            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Indeks, Ime, Prezime, DatumRodjenja, Aktivan, Predmeti });
             dgvStudenti.Location = new Point(12, 44);
             dgvStudenti.Name = "dgvStudenti";
             dgvStudenti.ReadOnly = true;
@@ -52,6 +53,24 @@
             dgvStudenti.Size = new Size(750, 229);
             dgvStudenti.TabIndex = 0;
             dgvStudenti.CellContentClick += dgvStudenti_CellContentClick;
+            // 
+            // btnStudent
+            // 
+            btnStudent.Location = new Point(659, 12);
+            btnStudent.Name = "btnStudent";
+            btnStudent.Size = new Size(103, 23);
+            btnStudent.TabIndex = 1;
+            btnStudent.Text = "Dodaj studenta";
+            btnStudent.UseVisualStyleBackColor = true;
+            btnStudent.Click += btnStudent_Click;
+            // 
+            // txtFilter
+            // 
+            txtFilter.Location = new Point(12, 12);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new Size(641, 23);
+            txtFilter.TabIndex = 2;
+            txtFilter.TextChanged += txtFilter_TextChanged;
             // 
             // Indeks
             // 
@@ -91,23 +110,13 @@
             Aktivan.Name = "Aktivan";
             Aktivan.ReadOnly = true;
             // 
-            // btnStudent
+            // Predmeti
             // 
-            btnStudent.Location = new Point(659, 12);
-            btnStudent.Name = "btnStudent";
-            btnStudent.Size = new Size(103, 23);
-            btnStudent.TabIndex = 1;
-            btnStudent.Text = "Dodaj studenta";
-            btnStudent.UseVisualStyleBackColor = true;
-            btnStudent.Click += btnStudent_Click;
-            // 
-            // txtFilter
-            // 
-            txtFilter.Location = new Point(12, 12);
-            txtFilter.Name = "txtFilter";
-            txtFilter.Size = new Size(641, 23);
-            txtFilter.TabIndex = 2;
-            txtFilter.TextChanged += txtFilter_TextChanged;
+            Predmeti.HeaderText = "Predmeti";
+            Predmeti.Name = "Predmeti";
+            Predmeti.ReadOnly = true;
+            Predmeti.Text = "Predmeti";
+            Predmeti.UseColumnTextForButtonValue = true;
             // 
             // frmStudentiPretraga
             // 
@@ -129,12 +138,13 @@
         #endregion
 
         private DataGridView dgvStudenti;
+        private Button btnStudent;
+        private TextBox txtFilter;
         private DataGridViewTextBoxColumn Indeks;
         private DataGridViewTextBoxColumn Ime;
         private DataGridViewTextBoxColumn Prezime;
         private DataGridViewTextBoxColumn DatumRodjenja;
         private DataGridViewCheckBoxColumn Aktivan;
-        private Button btnStudent;
-        private TextBox txtFilter;
+        private DataGridViewButtonColumn Predmeti;
     }
 }

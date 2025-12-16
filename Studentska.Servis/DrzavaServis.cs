@@ -2,6 +2,58 @@
 
 namespace Studentska.Servis
 {
+
+    public class PredmetServis //
+    {
+        public List<Predmet> GetAll()
+        {
+            return InMemoryDb.tblPredmeti;
+        }
+        public List<Predmet> GetByNaziv(string nazivPredmeta)
+        {
+            return InMemoryDb.tblPredmeti.Where(predmet => predmet.Naziv.Contains(nazivPredmeta)).ToList();
+        }
+
+        public Predmet Add(Predmet noviPredmet)
+        {
+            noviPredmet.Id = InMemoryDb.tblPredmeti.Count + 1;//4
+            InMemoryDb.tblPredmeti.Add(noviPredmet);
+            return noviPredmet;
+        }
+
+        public Predmet? GetById(int id)
+        {
+            return InMemoryDb.tblPredmeti.Find(predmet => predmet.Id == id);
+        }
+    }
+
+
+
+    public class PolozeniPredmetServis //
+    {
+        public List<PolozeniPredmet> GetAll()
+        {
+            return InMemoryDb.tblPolozeniPredmeti;
+        }        
+
+        public PolozeniPredmet Add(PolozeniPredmet noviPolozeniPredmet)
+        {
+            noviPolozeniPredmet.Id = InMemoryDb.tblPolozeniPredmeti.Count + 1;//4
+            InMemoryDb.tblPolozeniPredmeti.Add(noviPolozeniPredmet);
+            return noviPolozeniPredmet;
+        }
+
+        public PolozeniPredmet? GetById(int id)
+        {
+            return InMemoryDb.tblPolozeniPredmeti.Find(polozeni => polozeni.Id == id);
+        }
+
+        public List<PolozeniPredmet> GetByStudentId(int stidentId)
+        {
+            return InMemoryDb.tblPolozeniPredmeti.Where(polozeni => polozeni.StudentId == stidentId).ToList();
+        }
+    }
+
     public class DrzavaServis //
     {        
         public List<Drzava> GetAll()
