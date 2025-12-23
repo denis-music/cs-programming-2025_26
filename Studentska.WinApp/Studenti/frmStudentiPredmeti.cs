@@ -62,11 +62,11 @@ namespace Studentska.WinApp.Studenti
                 var noviPolozeni = new PolozeniPredmet()
                 {                    
                     PredmetId = predmet.Id,
-                    Predmet = predmet,
+                    //Predmet = predmet,
                     DatumPolaganja = dtpDatumPolaganja.Value,
                     Ocjena = int.Parse(cmbOcjena.Text),          
                     StudentId = _student.Id,
-                    Student = _student
+                    //Student = _student
                 };
                 polozeniPredmetServis.Add(noviPolozeni);
                 UcitajPolozenePredmete();

@@ -3,20 +3,22 @@
 namespace Studentska.Servis
 {
     public class SpolServis 
-    {        
+    {
+        StudentskaDbContext _dbContext = new StudentskaDbContext();
+
         public List<Spol> GetAll()
         {
-            return InMemoryDb.tblSpolovi;
+            return _dbContext.Spolovi.ToList();
         }
         public Spol Add(Spol noviSpol)//create
         {
-            noviSpol.Id = InMemoryDb.tblSpolovi.Count + 1;//4
-            InMemoryDb.tblSpolovi.Add(noviSpol);
+            //noviSpol.Id = _dbContext.Spolovi.Count + 1;//4
+            _dbContext.Spolovi.Add(noviSpol);
             return noviSpol;
         }       
         public Spol? GetById(int id)
         {
-            return InMemoryDb.tblSpolovi.Find(spol => spol.Id == id);
+            return _dbContext.Spolovi.Find(id);
         }
     }
 }

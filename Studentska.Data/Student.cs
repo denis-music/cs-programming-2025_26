@@ -17,14 +17,14 @@ namespace Studentska.Data
         public int GradId { get; set; }
         public Grad Grad { get; set; }
         public bool Aktivan { get; set; }
-        public Image Slika { get; set; }
+        public byte[] Slika { get; set; }
 
-        public Student(int indeks = 0, string ime = "",string prezime = "", bool aktivan = true)
+        public Student()
         {
-            Indeks = indeks.ToString();
-            Ime = ime;
-            Prezime = prezime;
-            Aktivan = aktivan;
+            //Indeks = indeks.ToString();
+            //Ime = ime;
+            //Prezime = prezime;
+            //Aktivan = aktivan;
         }
 
         public string GetInfo()

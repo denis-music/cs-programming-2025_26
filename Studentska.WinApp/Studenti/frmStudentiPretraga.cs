@@ -27,10 +27,10 @@ namespace Studentska.WinApp.Studenti
             try
             {
                 UcitajPodatke();
-                TestirajBazu();
+               // TestirajBazu();
             }
             catch (Exception ex)
-            {
+            {               
                 MessageBox.Show(ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -39,8 +39,7 @@ namespace Studentska.WinApp.Studenti
         {
             StudentskaDbContext db = new StudentskaDbContext();
             var drzave = db.Drzave.ToList();
-            db.Drzave.Where(drzava => drzava.Naziv.Contains("b")).ToList();
-            db.Drzave.Find(1);
+            MessageBox.Show($"Broj drazava = {drzave.Count}");
 
         }
 

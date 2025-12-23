@@ -68,7 +68,7 @@ namespace Studentska.WinApp.Studenti
                 txtLozinka.Text = _student.Lozinka;
                 cmbDrzave.SelectedValue = _student.Grad?.DrzavaId;
                 cmbGrad.SelectedValue = _student.GradId;
-                pbSlika.Image = _student.Slika;
+                pbSlika.Image = ImageHelper.ByteToImage(_student.Slika);
                 cbAktivan.Checked = _student.Aktivan;
                 dtpDatumRodjenja.Value = _student.DatumRodjenja;
             }
@@ -131,17 +131,19 @@ namespace Studentska.WinApp.Studenti
                     _student.Ime = txtIme.Text;
                     _student.Prezime = txtPrezime.Text;
                     _student.SpolId = spol.Id;
-                    _student.Spol = spol;
+                    //_student.Spol = spol;
                     _student.Indeks = txtIndeks.Text;
                     _student.Lozinka = txtLozinka.Text;
                     _student.GradId = grad.Id;
-                    _student.Grad = grad;
-                    _student.Slika = pbSlika.Image;
+                    //_student.Grad = grad;
+                    _student.Slika = ImageHelper.ImageToByte(pbSlika.Image);
                     _student.Aktivan = cbAktivan.Checked;
                     _student.DatumRodjenja = dtpDatumRodjenja.Value;
 
                     if (_student.Id == 0)
-                        _studentServis.Add(_student);                   
+                        _studentServis.Add(_student);
+                    else
+                        _studentServis.Update(_student);
 
                     MessageBox.Show(Resursi.Get(Kljucevi.UserSuccessfullyAdded), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;

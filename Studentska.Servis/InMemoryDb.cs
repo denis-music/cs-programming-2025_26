@@ -14,9 +14,19 @@ namespace Studentska.Servis
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {            
-                optionsBuilder.UseSqlite(ConfigurationManager.ConnectionStrings["StudentskaDb"].ConnectionString);
+            optionsBuilder.UseSqlite(ConfigurationManager.ConnectionStrings["StudentskaDb"].ConnectionString);
         }
         public DbSet<Drzava> Drzave { get; set; }
+        public DbSet<Grad> Gradovi { get; set; }
+        public DbSet<Spol> Spolovi { get; set; }
+        public DbSet<Student> Studenti { get; set; }
+        public DbSet<Predmet> Predmeti { get; set; }
+        public DbSet<PolozeniPredmet> PolozeniPredmeti { get; set; }
+
+
+
+
+
 
     }
 
