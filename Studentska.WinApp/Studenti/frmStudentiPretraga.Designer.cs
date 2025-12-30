@@ -37,6 +37,7 @@
             DatumRodjenja = new DataGridViewTextBoxColumn();
             Aktivan = new DataGridViewCheckBoxColumn();
             Predmeti = new DataGridViewButtonColumn();
+            Uplate = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).BeginInit();
             SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             dgvStudenti.AllowUserToAddRows = false;
             dgvStudenti.AllowUserToDeleteRows = false;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Indeks, Ime, Prezime, DatumRodjenja, Aktivan, Predmeti });
+            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Indeks, Ime, Prezime, DatumRodjenja, Aktivan, Predmeti, Uplate });
             dgvStudenti.Location = new Point(12, 44);
             dgvStudenti.Name = "dgvStudenti";
             dgvStudenti.ReadOnly = true;
@@ -118,6 +119,14 @@
             Predmeti.Text = "Predmeti";
             Predmeti.UseColumnTextForButtonValue = true;
             // 
+            // Uplate
+            // 
+            Uplate.HeaderText = "Uplate";
+            Uplate.Name = "Uplate";
+            Uplate.ReadOnly = true;
+            Uplate.Text = "Uplate";
+            Uplate.UseColumnTextForButtonValue = true;
+            // 
             // frmStudentiPretraga
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -146,5 +155,6 @@
         private DataGridViewTextBoxColumn DatumRodjenja;
         private DataGridViewCheckBoxColumn Aktivan;
         private DataGridViewButtonColumn Predmeti;
+        private DataGridViewButtonColumn Uplate;
     }
 }

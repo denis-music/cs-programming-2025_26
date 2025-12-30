@@ -9,7 +9,5 @@
         public Predmet Predmet { get; set; }
         public DateTime DatumPolaganja { get; set; }
         public int Ocjena { get; set; }
-
-
     }
 }

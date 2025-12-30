@@ -3,8 +3,25 @@
 namespace Studentska.Data
 {
 
+    public class Uloga
+    {
+        public int Id { get; set; }
+        public string Naziv { get; set; }
+        public string Opis { get; set; }
+        public bool Aktivan { get; set; }
+        public override string ToString() { return Naziv; }
+
+        public ICollection<Student> Studenti { get; set; } = new HashSet<Student>();
+
+    }
+
+
     public class Student
     {
+
+        public ICollection<Uloga> Uloge { get; set; } = new HashSet<Uloga>();
+
+
         public int Id { get; set; }
         public string Indeks { get; set; }
         public string Lozinka { get; set; }

@@ -1,4 +1,6 @@
-﻿using Studentska.Data;
+﻿using Microsoft.EntityFrameworkCore;
+
+using Studentska.Data;
 
 namespace Studentska.Servis
 {
@@ -19,21 +21,30 @@ namespace Studentska.Servis
         public Student Add(Student noviStudent)//create
         {
             //noviStudent.Id = InMemoryDb.tblStudenti.Count + 1;//4
+            UpdateUloga(noviStudent);
             _dbContext.Studenti.Add(noviStudent);
             _dbContext.SaveChanges();
             return noviStudent;
         }
 
+        private void UpdateUloga(Student noviStudent)
+        {
+            var idUlogaStudent = noviStudent.Uloge.Select(u => u.Id).ToList();//2,4
+            noviStudent.Uloge.Clear();
+            foreach (var idUloge in idUlogaStudent)
+                noviStudent.Uloge.Add(_dbContext.Uloge.Find(idUloge));
+        }
+
         public Student Update(Student noviStudent)//create
-        {            
-            _dbContext.Studenti.Update(noviStudent);
+        {          
+            UpdateUloga(noviStudent);
             _dbContext.SaveChanges();
             return noviStudent;
         }
 
-        public Student GetByJMBG(string jmbg)
+        public Student GetById(int id)
         {
-            return null;
+            return _dbContext.Studenti.Include(s=>s.Uloge).Where(s=>s.Id == id).First();
         }
     }
 }

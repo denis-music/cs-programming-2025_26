@@ -22,13 +22,15 @@ namespace Studentska.WinApp.Studenti
         DrzavaServis _drzavaServis = new DrzavaServis();
         GradServis _gradServis = new GradServis();
         StudentServis _studentServis = new StudentServis();
+        UlogaServis _ulogaServis = new UlogaServis();
 
         private Student _student;
 
-        public frmStudentiAddEdit(Student? odabraniStudent = null)
+        public frmStudentiAddEdit(int ? id = null)
         {
             InitializeComponent();
-            _student = odabraniStudent ?? new Student();
+            _student = 
+                id.HasValue ? _studentServis.GetById(id.Value) :  new Student();
         }
 
         private void frmStudentiAddEdit_Load(object sender, EventArgs e)
@@ -47,6 +49,7 @@ namespace Studentska.WinApp.Studenti
         {
             UcitajSpolove();
             UcitajDrzave();
+            UcitajUloge();
 
             if (_student.Id > 0)
                 UcitajPodatkeOStudentu();
@@ -55,6 +58,11 @@ namespace Studentska.WinApp.Studenti
                 UcitajBrojIndeksa();
                 UcitajLozinku();
             }
+        }
+
+        private void UcitajUloge()
+        {
+            clbUloge.DataSource = _ulogaServis.GetAll();
         }
 
         private void UcitajPodatkeOStudentu()
@@ -66,17 +74,24 @@ namespace Studentska.WinApp.Studenti
                 cmbSpol.SelectedValue = _student.SpolId;
                 txtIndeks.Text = _student.Indeks;
                 txtLozinka.Text = _student.Lozinka;
-                cmbDrzave.SelectedValue = _student.Grad?.DrzavaId;
+                cmbDrzave.SelectedValue = _gradServis.GetById(_student.GradId).DrzavaId;
                 cmbGrad.SelectedValue = _student.GradId;
                 pbSlika.Image = ImageHelper.ByteToImage(_student.Slika);
                 cbAktivan.Checked = _student.Aktivan;
                 dtpDatumRodjenja.Value = _student.DatumRodjenja;
+
+                for (int i = 0; i < clbUloge.Items.Count; i++)
+                {
+                    var uloga = clbUloge.Items[i] as Uloga;
+                    if (_student.Uloge.Any(u=>u.Id == uloga.Id))
+                        clbUloge.SetItemChecked(i, true);
+                }
             }
             catch (Exception ex)
             {
                 Text = ex.Message;
             }
-                   
+
         }
 
         private void UcitajLozinku()
@@ -140,6 +155,8 @@ namespace Studentska.WinApp.Studenti
                     _student.Aktivan = cbAktivan.Checked;
                     _student.DatumRodjenja = dtpDatumRodjenja.Value;
 
+                    _student.Uloge = clbUloge.CheckedItems.Cast<Uloga>().ToList();
+
                     if (_student.Id == 0)
                         _studentServis.Add(_student);
                     else
@@ -168,6 +185,25 @@ namespace Studentska.WinApp.Studenti
                 Validator.ValidanUnos(pbSlika, err, Resursi.Get(Kljucevi.UserNameRequired));
         }
 
+        private void btnToSlika_Click(object sender, EventArgs e)
+        {
+            PredjiNaNaredniTab();
+        }
+
+        private void PredjiNaNaredniTab()
+        {
+            tabControl1.SelectTab(tabControl1.SelectedIndex + 1);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnToUloge_Click(object sender, EventArgs e)
+        {
+            PredjiNaNaredniTab();
+        }
     }
 
 }

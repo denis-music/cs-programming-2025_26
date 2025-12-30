@@ -123,4 +123,7 @@
   <metadata name="err.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>113, 17</value>
   </metadata>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Svi preuzimamo slike ili izrađujemo memove kako bismo ih povremeno dijelili na društvenim mrežama ili radi profesionalnog rada. Ali budući da pretvaranje svega u PDF rješava probleme s kvalitetom, čini se da ne moramo tražiti formate slikovnih datoteka. Ali koja je šteta znati koji su formati slikovnih datoteka najprikladniji za koju svrhu?</value>
+  </data>
 </root>

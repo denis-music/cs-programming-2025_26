@@ -1,37 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-using Studentska.Data;
-
-using System.Configuration;
+﻿using Studentska.Data;
 
 namespace Studentska.Servis
 {
-
-
-    public class StudentskaDbContext : DbContext
-    {
-        //Server=192.168.8.8\SQL2025;Database=Studentska;User Id=dbUser;Password=Test1326;
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {            
-            optionsBuilder.UseSqlite(ConfigurationManager.ConnectionStrings["StudentskaDb"].ConnectionString);
-        }
-        public DbSet<Drzava> Drzave { get; set; }
-        public DbSet<Grad> Gradovi { get; set; }
-        public DbSet<Spol> Spolovi { get; set; }
-        public DbSet<Student> Studenti { get; set; }
-        public DbSet<Predmet> Predmeti { get; set; }
-        public DbSet<PolozeniPredmet> PolozeniPredmeti { get; set; }
-
-
-
-
-
-
-    }
-
-
-
     public class InMemoryDb
     {
         public static List<Korisnik> tblKorisnici = GenerisiKorisnike();
@@ -42,7 +12,6 @@ namespace Studentska.Servis
         public static List<Predmet> tblPredmeti = GenerisiPredmete();
         public static List<PolozeniPredmet> tblPolozeniPredmeti = new List<PolozeniPredmet>();
 
-
         private static List<Predmet> GenerisiPredmete()
         {
             return new List<Predmet>()
@@ -52,7 +21,6 @@ namespace Studentska.Servis
                 new Predmet(){ Id=3, Naziv="Programiranje I", Oznaka="PRI", Aktivan=true, Semestar = 1 },
             };
         }        
-
         private static List<Spol> GenerisiSpolove()
         {
             return new List<Spol>()

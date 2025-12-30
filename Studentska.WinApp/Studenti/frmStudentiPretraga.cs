@@ -58,14 +58,19 @@ namespace Studentska.WinApp.Studenti
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
-            Text = $"{e.RowIndex} :: {e.ColumnIndex}";
+            //Text = $"{e.RowIndex} :: {e.ColumnIndex}";
             if (odabraniStudent != null)
             {
                 Form forma =  null;
                 if (dgvStudenti.CurrentCell is DataGridViewButtonCell)
-                    forma = new frmStudentiPredmeti(odabraniStudent);
+                {
+                    if (e.ColumnIndex == 5)
+                        forma = new frmStudentiPredmeti(odabraniStudent);
+                    else
+                        forma = new frmStudentiUplate(odabraniStudent.Id);
+                }
                 else
-                    forma = new frmStudentiAddEdit(odabraniStudent);
+                    forma = new frmStudentiAddEdit(odabraniStudent.Id);
                 
                 if (forma.ShowDialog() == DialogResult.OK)
                     UcitajPodatke();
