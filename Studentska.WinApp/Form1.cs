@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 using Studentska.Data;
-using Studentska.Servis;
+using Studentska.Servis.Servisi;
 
 using System.Dynamic;
 using System.Text.Json.Serialization;

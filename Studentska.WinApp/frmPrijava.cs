@@ -1,4 +1,4 @@
-﻿using Studentska.Servis;
+﻿using Studentska.Servis.Servisi;
 using Studentska.WinApp.Helpers;
 
 //using static System.Windows.Forms.VisualStyles.VisualStyleElement;

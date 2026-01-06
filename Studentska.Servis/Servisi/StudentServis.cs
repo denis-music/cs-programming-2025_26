@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Studentska.Data;
+using Studentska.Data.Entiteti;
 
-namespace Studentska.Servis
+namespace Studentska.Servis.Servisi
 {
     public class StudentServis //CRUD Student
     {

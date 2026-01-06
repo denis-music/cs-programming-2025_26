@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using Studentska.Data;
+using Studentska.Data.Entiteti;
 
 using System.Configuration;
 
@@ -33,12 +33,6 @@ namespace Studentska.Servis
         public DbSet<AkademskaGodina> AkademskeGodine { get; set; }
         public DbSet<VrstaUplate> VrsteUplata { get; set; }
         public DbSet<StudentUplata> StudentiUplate { get; set; }
-
-
-
-
-
-
 
     }
 }

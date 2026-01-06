@@ -1,6 +1,6 @@
 ﻿using Studentska.Data;
 
-namespace Studentska.Servis
+namespace Studentska.Servis.Servisi
 {
     public class KorisnikServis //CRUD Korisnik
     {

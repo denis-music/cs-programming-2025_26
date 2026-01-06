@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Studentska.Data
+namespace Studentska.Data.Entiteti
 {
 
     public class Uloga
@@ -42,6 +42,13 @@ namespace Studentska.Data
             //Ime = ime;
             //Prezime = prezime;
             //Aktivan = aktivan;
+        }
+        public Student(int indeks, string ime, string prezime, bool aktivan)
+        {
+            Indeks = indeks.ToString();
+            Ime = ime;
+            Prezime = prezime;
+            Aktivan = aktivan;
         }
 
         public string GetInfo()

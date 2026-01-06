@@ -1,7 +1,7 @@
 ﻿using Accessibility;
 
-using Studentska.Data;
-using Studentska.Servis;
+using Studentska.Data.Entiteti;
+using Studentska.Servis.Servisi;
 using Studentska.WinApp.Helpers;
 
 using System;

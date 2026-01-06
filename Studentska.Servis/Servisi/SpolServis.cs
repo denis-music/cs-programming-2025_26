@@ -1,6 +1,6 @@
-﻿using Studentska.Data;
+﻿using Studentska.Data.Entiteti;
 
-namespace Studentska.Servis
+namespace Studentska.Servis.Servisi
 {
     public class SpolServis 
     {

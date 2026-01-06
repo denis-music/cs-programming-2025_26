@@ -1,4 +1,4 @@
-﻿using Studentska.Data;
+﻿using Studentska.Data.Entiteti;
 
 using System;
 using System.Collections.Generic;

@@ -1,6 +1,6 @@
-﻿using Studentska.Data;
+﻿using Studentska.Data.Entiteti;
 
-namespace Studentska.Servis
+namespace Studentska.Servis.Servisi
 {
     public class GradServis : BaseServis<Grad>
     {        
@@ -13,15 +13,5 @@ namespace Studentska.Servis
         {
             return _dbContext.Gradovi.Where(grad => grad.DrzavaId == drzavaId).ToList();
         }    
-    }
-
-    public class UlogaServis
-    {
-        StudentskaDbContext _dbContext = new StudentskaDbContext();
-
-        public List<Uloga> GetAll()
-        {
-            return _dbContext.Uloge.ToList();
-        }        
     }
 }

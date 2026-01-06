@@ -1,4 +1,4 @@
-﻿using Studentska.Servis;
+﻿using Studentska.Servis.Servisi;
 
 using System;
 using System.Collections.Generic;

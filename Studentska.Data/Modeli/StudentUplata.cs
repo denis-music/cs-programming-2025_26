@@ -1,4 +1,4 @@
-﻿namespace Studentska.Data
+﻿namespace Studentska.Data.Entiteti
 {
     public class StudentUplata
     {

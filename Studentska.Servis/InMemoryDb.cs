@@ -1,4 +1,5 @@
 ﻿using Studentska.Data;
+using Studentska.Data.Entiteti;
 
 namespace Studentska.Servis
 {
@@ -11,7 +12,6 @@ namespace Studentska.Servis
         public static List<Spol> tblSpolovi = GenerisiSpolove();
         public static List<Predmet> tblPredmeti = GenerisiPredmete();
         public static List<PolozeniPredmet> tblPolozeniPredmeti = new List<PolozeniPredmet>();
-
         private static List<Predmet> GenerisiPredmete()
         {
             return new List<Predmet>()

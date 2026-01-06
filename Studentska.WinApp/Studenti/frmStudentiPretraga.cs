@@ -1,5 +1,6 @@
-﻿using Studentska.Data;
+﻿using Studentska.Data.Entiteti;
 using Studentska.Servis;
+using Studentska.Servis.Servisi;
 
 using System;
 using System.Collections.Generic;
