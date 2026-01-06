@@ -2,6 +2,7 @@
 using Studentska.Data.Entiteti;
 using Studentska.Servis.Servisi;
 using Studentska.WinApp.Helpers;
+using Studentska.WinApp.Izvjestaji;
 
 using System;
 using System.Collections.Generic;
@@ -98,5 +99,23 @@ namespace Studentska.WinApp.Studenti
             //TODO: Implement validation logic  
             return true;
         }
+
+        private void btnPrintaj_Click(object sender, EventArgs e)
+        {
+            var uplate = dgvUplateStudenta.DataSource as List<StudentUplata>;
+            var studentUplate = new dtoStudentUplate
+            {
+                Student = _student,
+                Uplate = uplate
+            };
+            var frmIzvjestaj = new frmIzvjestaji(studentUplate);
+            frmIzvjestaj.ShowDialog();
+        }
+
+        public class dtoStudentUplate
+        {
+            public Student Student { get; set; }
+            public List<StudentUplata> Uplate { get; set; }
+            }
     }
 }

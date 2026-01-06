@@ -6,7 +6,4 @@ namespace Studentska.Servis.Servisi
     {
 
     }
-
-
-
 }

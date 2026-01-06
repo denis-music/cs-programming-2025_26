@@ -59,6 +59,10 @@ namespace Studentska.Data.Entiteti
         {
             return $"{Indeks} {Ime} {Prezime} {Semestar} {Aktivan}";
         }
+        public string ToShortString()
+        {
+            return $"{Ime} {Prezime}";
+        }
     }
 
     public struct sStudent

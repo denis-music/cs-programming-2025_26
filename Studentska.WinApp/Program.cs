@@ -1,3 +1,4 @@
+using Studentska.WinApp.Izvjestaji;
 using Studentska.WinApp.Studenti;
 
 namespace Studentska.WinApp

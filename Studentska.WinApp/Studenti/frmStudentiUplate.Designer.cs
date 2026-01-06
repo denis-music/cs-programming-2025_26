@@ -46,6 +46,7 @@
             pbSlika = new PictureBox();
             lblImePrezime = new Label();
             lblIndeks = new Label();
+            btnPrintaj = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUplateStudenta).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSlika).BeginInit();
             SuspendLayout();
@@ -205,11 +206,22 @@
             lblIndeks.TabIndex = 12;
             lblIndeks.Text = "IB150051";
             // 
+            // btnPrintaj
+            // 
+            btnPrintaj.Location = new Point(677, 444);
+            btnPrintaj.Name = "btnPrintaj";
+            btnPrintaj.Size = new Size(99, 23);
+            btnPrintaj.TabIndex = 13;
+            btnPrintaj.Text = "Printaj";
+            btnPrintaj.UseVisualStyleBackColor = true;
+            btnPrintaj.Click += btnPrintaj_Click;
+            // 
             // frmStudentiUplate
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 477);
+            Controls.Add(btnPrintaj);
             Controls.Add(lblIndeks);
             Controls.Add(lblImePrezime);
             Controls.Add(pbSlika);
@@ -252,5 +264,6 @@
         private DataGridViewTextBoxColumn DatumUplate;
         private DataGridViewTextBoxColumn Iznos;
         private DataGridViewButtonColumn Obrisi;
+        private Button btnPrintaj;
     }
 }

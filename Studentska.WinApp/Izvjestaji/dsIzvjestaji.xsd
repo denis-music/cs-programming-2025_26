@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsIzvjestaji" targetNamespace="http://tempuri.org/dsIzvjestaji.xsd" xmlns:mstns="http://tempuri.org/dsIzvjestaji.xsd" xmlns="http://tempuri.org/dsIzvjestaji.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsIzvjestaji" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsIzvjestaji" msprop:Generator_DataSetName="dsIzvjestaji">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="StudentiUplate" msprop:Generator_RowEvHandlerName="StudentiUplateRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentiUplateRowDeleted" msprop:Generator_RowDeletingName="StudentiUplateRowDeleting" msprop:Generator_RowEvArgName="StudentiUplateRowChangeEvent" msprop:Generator_TablePropName="StudentiUplate" msprop:Generator_RowChangedName="StudentiUplateRowChanged" msprop:Generator_RowChangingName="StudentiUplateRowChanging" msprop:Generator_TableClassName="StudentiUplateDataTable" msprop:Generator_RowClassName="StudentiUplateRow" msprop:Generator_TableVarName="tableStudentiUplate" msprop:Generator_UserTableName="StudentiUplate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Rb" msprop:Generator_ColumnPropNameInRow="Rb" msprop:Generator_ColumnPropNameInTable="RbColumn" msprop:Generator_ColumnVarNameInTable="columnRb" msprop:Generator_UserColumnName="Rb" type="xs:string" minOccurs="0" />
+              <xs:element name="AkademskaGodina" msprop:Generator_ColumnPropNameInRow="AkademskaGodina" msprop:Generator_ColumnPropNameInTable="AkademskaGodinaColumn" msprop:Generator_ColumnVarNameInTable="columnAkademskaGodina" msprop:Generator_UserColumnName="AkademskaGodina" type="xs:string" minOccurs="0" />
+              <xs:element name="VrstaUplate" msprop:Generator_ColumnPropNameInRow="VrstaUplate" msprop:Generator_ColumnPropNameInTable="VrstaUplateColumn" msprop:Generator_ColumnVarNameInTable="columnVrstaUplate" msprop:Generator_UserColumnName="VrstaUplate" type="xs:string" minOccurs="0" />
+              <xs:element name="DatumUplate" msprop:Generator_ColumnPropNameInRow="DatumUplate" msprop:Generator_ColumnPropNameInTable="DatumUplateColumn" msprop:Generator_ColumnVarNameInTable="columnDatumUplate" msprop:Generator_UserColumnName="DatumUplate" type="xs:string" minOccurs="0" />
+              <xs:element name="Iznos" msprop:Generator_ColumnPropNameInRow="Iznos" msprop:Generator_ColumnPropNameInTable="IznosColumn" msprop:Generator_ColumnVarNameInTable="columnIznos" msprop:Generator_UserColumnName="Iznos" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

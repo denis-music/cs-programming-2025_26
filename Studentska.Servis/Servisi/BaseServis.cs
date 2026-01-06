@@ -20,7 +20,4 @@
             return _dbContext.Set<T>().Find(id);
         }
     }
-
-
-
 }
