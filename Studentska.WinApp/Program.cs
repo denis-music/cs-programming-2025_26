@@ -1,3 +1,4 @@
+using Studentska.WinApp.Asinhrono;
 using Studentska.WinApp.Izvjestaji;
 using Studentska.WinApp.Studenti;
 
@@ -14,7 +15,7 @@ namespace Studentska.WinApp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmStudentiPretraga());
+            Application.Run(new frmProvjeraDostupnosti());
         }
     }
 }

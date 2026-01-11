@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11116.177 d18.0
+VisualStudioVersion = 18.0.11116.177
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Studentska.ConsoleApp", "Studentska.ConsoleApp\Studentska.ConsoleApp.csproj", "{0F2FF105-8312-414E-AEDA-2D0AC52D596E}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Studentska.Servis", "Studentska.Servis\Studentska.Servis.csproj", "{A1C8D759-26B3-4396-9F8B-16546830EFEF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Studentska.WinApp", "Studentska.WinApp\Studentska.WinApp.csproj", "{0D087865-D4CE-4855-B643-9B7B48F9BB12}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Studentska.Setup", "Studentska.Setup\Studentska.Setup.vdproj", "{5CE10CC2-276F-7B0F-B13B-EC34D4B5100D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0D087865-D4CE-4855-B643-9B7B48F9BB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D087865-D4CE-4855-B643-9B7B48F9BB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D087865-D4CE-4855-B643-9B7B48F9BB12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CE10CC2-276F-7B0F-B13B-EC34D4B5100D}.Debug|Any CPU.ActiveCfg = Debug
+		{5CE10CC2-276F-7B0F-B13B-EC34D4B5100D}.Debug|Any CPU.Build.0 = Debug
+		{5CE10CC2-276F-7B0F-B13B-EC34D4B5100D}.Release|Any CPU.ActiveCfg = Release
+		{5CE10CC2-276F-7B0F-B13B-EC34D4B5100D}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
